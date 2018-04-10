@@ -1,0 +1,52 @@
+<html>
+	<head>
+			<style>
+			body {
+    		color: blue;
+			}
+
+			h1 {
+   			 color: green;
+			}
+			.center {
+    		margin: auto;
+    		width: 15%;
+ 			border: 3px solid #73AD21;
+    		padding: 10px;
+			}
+			</style>
+				
+	</head>
+	<body>
+		<div class="center">
+		<h3>Enter no of seconds to wait</h3>
+		<input type="number" id="text_one" /><br/><br/>
+		<input type="button" id="btn_one" onclick="waitfunction()" value="Please click on this button" />	
+		<div id="target_div"></div>
+		<div id="error_div" ></div>
+		
+		<script>
+			function waitfunction(){
+				var time = document.getElementById("text_one").value;
+				if (time == "")
+				{
+				var error = "Please enter no of seconds";	
+				document.getElementById("error_div").innerHTML = error;
+				}else{
+				var seconds = "Please wait " +time+ " seconds";
+				var result = "Finished Processing";
+				document.getElementById("target_div").innerHTML = seconds;
+
+   			var timeleft = time;
+    		var downloadTimer = setInterval(function(){
+    		timeleft--;
+    		document.getElementById("target_div").textContent = "Please wait "+timeleft+" seconds.";
+    		if(timeleft <= 0)
+     	   document.getElementById("target_div").innerHTML = result;
+    		},1000);
+			}}	
+		</script>
+		</div>
+	</body>
+	
+</html>
